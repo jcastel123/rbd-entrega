@@ -1,130 +1,131 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-<meta charset="UTF-8">
-<title>Entrega RBD - Intro Big Data</title>
-<link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <title>Entrega RBD - Intro Big Data</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
 <header>
-<h1>Entrega RBD - Intro Big Data</h1>
-<p>Entrega completa - AWS · Big Data · Hadoop · Hive · Spark · Tableau</p>
-<p><b>Alumno:</b> Joaquim Castel</p>
+    <h1>Entrega RBD - Intro Big Data</h1>
+    <p>Entrega completa - AWS · Big Data · Hadoop · Hive · Spark · Tableau</p>
+    <p><b>Alumno:</b> Joaquim Castel</p>
 </header>
 
 <nav>
-<a href="#aws">AWS</a>
-<a href="#ec2">EC2</a>
-<a href="#autoscaling">AutoScaling</a>
-<a href="#bigdata">Big Data</a>
-<a href="#hadoop">Hadoop</a>
-<a href="#mapreduce">MapReduce</a>
-<a href="#hive">Hive</a>
-<a href="#spark">Spark</a>
-<a href="#modelo">Modelo Datos</a>
-<a href="#tableau">Tableau</a>
-<a href="#analisis">Análisis</a>
+    <a href="#aws">AWS</a>
+    <a href="#ec2">EC2</a>
+    <a href="#autoscaling">AutoScaling</a>
+    <a href="#bigdata">Big Data</a>
+    <a href="#hadoop">Hadoop</a>
+    <a href="#mapreduce">MapReduce</a>
+    <a href="#hive">Hive</a>
+    <a href="#spark">Spark</a>
+    <a href="#modelo">Modelo Datos</a>
+    <a href="#tableau">Tableau</a>
+    <a href="#analisis">Análisis</a>
+    <a href="#conclusiones">Conclusiones</a>
 </nav>
 
 <section id="aws">
-<h2>Sección 1 - AWS</h2>
+    <h2>Sección 1 - AWS</h2>
 
-<h3>Servicios AWS</h3>
-<ul>
-<li><b>EC2:</b> Servicio de máquinas virtuales en la nube.</li>
-<li><b>RDS:</b> Bases de datos gestionadas por AWS.</li>
-<li><b>S3:</b> Almacenamiento de archivos.</li>
-<li><b>EBS:</b> Discos virtuales para EC2.</li>
-<li><b>DynamoDB:</b> Base de datos NoSQL.</li>
-<li><b>CloudFront:</b> CDN para acelerar webs.</li>
-<li><b>Lambda:</b> Ejecución de código sin servidores.</li>
-<li><b>CloudWatch:</b> Monitorización.</li>
-<li><b>IAM:</b> Usuarios y permisos.</li>
-<li><b>Route53:</b> DNS de AWS.</li>
-</ul>
+    <h3>Servicios AWS</h3>
+    <ul>
+        <li><b>EC2:</b> Servicio de máquinas virtuales en la nube.</li>
+        <li><b>RDS:</b> Bases de datos gestionadas por AWS.</li>
+        <li><b>S3:</b> Almacenamiento de archivos.</li>
+        <li><b>EBS:</b> Discos virtuales para EC2.</li>
+        <li><b>DynamoDB:</b> Base de datos NoSQL.</li>
+        <li><b>CloudFront:</b> CDN para acelerar webs.</li>
+        <li><b>Lambda:</b> Ejecución de código sin servidores.</li>
+        <li><b>CloudWatch:</b> Monitorización.</li>
+        <li><b>IAM:</b> Usuarios y permisos.</li>
+        <li><b>Route53:</b> DNS de AWS.</li>
+    </ul>
 
-<h3>Arquitectura AWS</h3>
-<p>
-Los servicios de datos se ubican en redes privadas (RDS, EBS) para evitar accesos externos.
-Los servicios públicos como EC2 y CloudFront se sitúan en redes públicas.
-La arquitectura se despliega en dos CPDs dentro de una misma región para garantizar alta disponibilidad.
-</p>
+    <h3>Arquitectura AWS</h3>
+    <p>
+        Los servicios de datos se ubican en redes privadas (RDS, EBS) para evitar accesos externos.
+        Los servicios públicos como EC2 y CloudFront se sitúan en redes públicas.
+        La arquitectura se despliega en dos CPDs dentro de una misma región para garantizar alta disponibilidad.
+    </p>
 </section>
 
 <section id="ec2">
-<h2>Sección 2 - Primer servidor web en AWS</h2>
-<p>
-Se creó una instancia EC2 con Apache, protección contra terminación activada,
-página web Hello World, monitorización activa, grupo de seguridad con HTTP habilitado,
-reescalado de la instancia y prueba de protección contra terminación.
-</p>
+    <h2>Sección 2 - Primer servidor web en AWS</h2>
+    <p>
+        Se creó una instancia EC2 con Apache, protección contra terminación activada,
+        página web Hello World, monitorización activa, grupo de seguridad con HTTP habilitado,
+        reescalado de la instancia y prueba de protección contra terminación.
+    </p>
 </section>
 
 <section id="autoscaling">
-<h2>Sección 3 - AutoScaling y Load Balancer</h2>
-<p>
-Arquitectura formada por VPC, subredes públicas, instancias EC2,
-AutoScaling Group, Elastic Load Balancer y monitorización mediante CloudWatch.
-</p>
+    <h2>Sección 3 - AutoScaling y Load Balancer</h2>
+    <p>
+        Arquitectura formada por VPC, subredes públicas, instancias EC2,
+        AutoScaling Group, Elastic Load Balancer y monitorización mediante CloudWatch.
+    </p>
 </section>
 
 <section id="bigdata">
-<h2>Big Data</h2>
+    <h2>Big Data</h2>
 
-<h3>Las 5 Vs</h3>
-<ul>
-<li><b>Volume:</b> Cantidad de datos generados</li>
-<li><b>Velocity:</b> Velocidad de generación</li>
-<li><b>Variety:</b> Tipos de datos</li>
-<li><b>Veracity:</b> Calidad de datos</li>
-<li><b>Value:</b> Valor obtenido de los datos</li>
-</ul>
+    <h3>Las 5 Vs</h3>
+    <ul>
+        <li><b>Volume:</b> Cantidad de datos generados</li>
+        <li><b>Velocity:</b> Velocidad de generación</li>
+        <li><b>Variety:</b> Tipos de datos</li>
+        <li><b>Veracity:</b> Calidad de datos</li>
+        <li><b>Value:</b> Valor obtenido de los datos</li>
+    </ul>
 
-<h3>Ejemplos</h3>
-<ul>
-<li>Volume: Redes sociales con millones de posts</li>
-<li>Velocity: Datos de tráfico GPS</li>
-<li>Variety: Datos de clientes</li>
-<li>Veracity: Corrección de duplicados</li>
-<li>Value: Predicción de demanda</li>
-</ul>
+    <h3>Ejemplos</h3>
+    <ul>
+        <li>Volume: Redes sociales con millones de posts</li>
+        <li>Velocity: Datos de tráfico GPS</li>
+        <li>Variety: Datos de clientes</li>
+        <li>Veracity: Corrección de duplicados</li>
+        <li>Value: Predicción de demanda</li>
+    </ul>
 
-<h3>Limitaciones BBDD tradicionales</h3>
-<ul>
-<li>No escalan fácilmente</li>
-<li>No procesan datos en tiempo real</li>
-<li>Solo datos estructurados</li>
-<li>Validación lenta</li>
-<li>Análisis complejo</li>
-</ul>
+    <h3>Limitaciones de BBDD tradicionales</h3>
+    <ul>
+        <li>No escalan fácilmente</li>
+        <li>No procesan datos en tiempo real</li>
+        <li>Solo datos estructurados</li>
+        <li>Validación lenta</li>
+        <li>Análisis complejo</li>
+    </ul>
 </section>
 
 <section id="hadoop">
-<h2>Hadoop</h2>
-<p><b>Cloudera:</b> HDFS, YARN, MapReduce, Hive, Impala, Hue</p>
-<p><b>Hortonworks:</b> HDFS, YARN, MapReduce, Hive, Pig, Ambari, HBase</p>
+    <h2>Hadoop</h2>
+    <p><b>Cloudera:</b> HDFS, YARN, MapReduce, Hive, Impala, Hue</p>
+    <p><b>Hortonworks:</b> HDFS, YARN, MapReduce, Hive, Pig, Ambari, HBase</p>
 </section>
 
 <section id="mapreduce">
-<h2>MapReduce</h2>
-<p>
-Modelo de procesamiento distribuido.
-Map genera pares clave-valor y Reduce agrupa y resume datos.
-Ejemplo: contar palabras en un libro.
-</p>
+    <h2>MapReduce</h2>
+    <p>
+        Modelo de procesamiento distribuido.
+        Map genera pares clave-valor y Reduce agrupa y resume datos.
+        Ejemplo: contar palabras en un libro.
+    </p>
 </section>
 
 <section id="hive">
-<h2>Hive vs MySQL</h2>
-<p>
-MySQL es transaccional y orientado a aplicaciones.
-Hive es analítico y orientado a Big Data.
-</p>
+    <h2>Hive vs MySQL</h2>
+    <p>
+        MySQL es transaccional y orientado a aplicaciones.
+        Hive es analítico y orientado a Big Data.
+    </p>
 
-<h3>Tabla externa Hive</h3>
-<pre>
+    <h3>Tabla externa Hive</h3>
+    <pre>
 CREATE EXTERNAL TABLE IF NOT EXISTS sensor_data (
  sensor_id INT,
  temperature DOUBLE,
@@ -146,52 +147,62 @@ LOCATION 's3://retoBigData/input/'
 TBLPROPERTIES (
  "skip.header.line.count" = "1"
 );
-</pre>
+    </pre>
 </section>
 
 <section id="spark">
-<h2>Apache Spark</h2>
-<p>
-Spark procesa datos en memoria, es más rápido que Hadoop MapReduce
-y soporta batch, streaming, machine learning y gráficos.
-</p>
+    <h2>Apache Spark</h2>
+    <p>
+        Spark procesa datos en memoria, es más rápido que Hadoop MapReduce
+        y soporta batch, streaming, machine learning y gráficos.
+    </p>
 </section>
 
 <section id="modelo">
-<h2>Modelo de captación de datos</h2>
-<ul>
-<li>sensor_id (Entero)</li>
-<li>temperature (Decimal)</li>
-<li>city (Texto)</li>
-<li>timestamp (Fecha/Tiempo)</li>
-<li>is_raining (Booleano)</li>
-<li>humidity (Entero)</li>
-<li>wind_speed (Decimal)</li>
-<li>extra_metrics (Map)</li>
-</ul>
+    <h2>Modelo de captación de datos</h2>
+    <ul>
+        <li>sensor_id (Entero)</li>
+        <li>temperature (Decimal)</li>
+        <li>city (Texto)</li>
+        <li>timestamp (Fecha/Tiempo)</li>
+        <li>is_raining (Booleano)</li>
+        <li>humidity (Entero)</li>
+        <li>wind_speed (Decimal)</li>
+        <li>extra_metrics (Map)</li>
+    </ul>
 </section>
 
 <section id="tableau">
-<h2>Tableau</h2>
-<p>
-Creación de dashboards, filtros, story, análisis de datos y conclusiones.
-</p>
+    <h2>Tableau</h2>
+    <p>
+        Creación de dashboards, filtros, story, análisis de datos y conclusiones.
+    </p>
 </section>
 
 <section id="analisis">
-<h2>Limpieza, Procesado y Análisis</h2>
-<ul>
-<li>Eliminación de nulos</li>
-<li>Detección de outliers</li>
-<li>Campo flag crítico</li>
-<li>Estacionalidad</li>
-<li>Predicción futura</li>
-</ul>
+    <h2>Limpieza, Procesado y Análisis</h2>
+    <ul>
+        <li>Eliminación de nulos</li>
+        <li>Detección de outliers</li>
+        <li>Campo flag crítico</li>
+        <li>Estacionalidad</li>
+        <li>Predicción futura</li>
+    </ul>
+</section>
+
+<section id="conclusiones">
+    <h2>Conclusiones</h2>
+    <p>
+        El proyecto integra cloud computing, Big Data y analítica de datos,
+        aplicando tecnologías reales como AWS, Hadoop, Hive, Spark y Tableau,
+        demostrando un flujo completo desde la infraestructura hasta la visualización y análisis.
+    </p>
 </section>
 
 <footer>
-<p>Entrega RBD - Intro Big Data | Joaquim Castel</p>
+    <p>Entrega RBD - Intro Big Data | Joaquim Castel</p>
 </footer>
 
 </body>
 </html>
+
