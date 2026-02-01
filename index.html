@@ -2,207 +2,191 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <title>Entrega RBD - Intro Big Data</title>
+    <title>Reto Intro al Big Data – Entrega Extraordinaria</title>
     <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
 
 <header>
-    <h1>Entrega RBD - Intro Big Data</h1>
-    <p>Entrega completa - AWS · Big Data · Hadoop · Hive · Spark · Tableau</p>
-    <p><b>Alumno:</b> Joaquim Castel</p>
+    <h1>Reto Intro al Big Data (RBD)</h1>
+    <p>Entrega Extraordinaria – quim castel</p>
 </header>
 
-<nav>
-    <a href="#aws">AWS</a>
-    <a href="#ec2">EC2</a>
-    <a href="#autoscaling">AutoScaling</a>
-    <a href="#bigdata">Big Data</a>
-    <a href="#hadoop">Hadoop</a>
-    <a href="#mapreduce">MapReduce</a>
-    <a href="#hive">Hive</a>
-    <a href="#spark">Spark</a>
-    <a href="#modelo">Modelo Datos</a>
-    <a href="#tableau">Tableau</a>
-    <a href="#analisis">Análisis</a>
-    <a href="#conclusiones">Conclusiones</a>
-</nav>
-
-<section id="aws">
-    <h2>Sección 1 - AWS</h2>
-
-    <h3>Servicios AWS</h3>
-    <ul>
-        <li><b>EC2:</b> Servicio de máquinas virtuales en la nube.</li>
-        <li><b>RDS:</b> Bases de datos gestionadas por AWS.</li>
-        <li><b>S3:</b> Almacenamiento de archivos.</li>
-        <li><b>EBS:</b> Discos virtuales para EC2.</li>
-        <li><b>DynamoDB:</b> Base de datos NoSQL.</li>
-        <li><b>CloudFront:</b> CDN para acelerar webs.</li>
-        <li><b>Lambda:</b> Ejecución de código sin servidores.</li>
-        <li><b>CloudWatch:</b> Monitorización.</li>
-        <li><b>IAM:</b> Usuarios y permisos.</li>
-        <li><b>Route53:</b> DNS de AWS.</li>
-    </ul>
-
-    <h3>Arquitectura AWS</h3>
+<section>
+    <h2>Introducción</h2>
     <p>
-        Los servicios de datos se ubican en redes privadas (RDS, EBS) para evitar accesos externos.
-        Los servicios públicos como EC2 y CloudFront se sitúan en redes públicas.
-        La arquitectura se despliega en dos CPDs dentro de una misma región para garantizar alta disponibilidad.
+        En este proyecto se desarrolla el Reto Intro al Big Data, cuyo objetivo es
+        aplicar conceptos de computación en la nube y análisis de datos reales.
+        A lo largo de la práctica se ha trabajado con servicios de Amazon Web Services
+        y con la herramienta Tableau para la visualización y análisis de datos.
     </p>
 </section>
 
-<section id="ec2">
-    <h2>Sección 2 - Primer servidor web en AWS</h2>
+<section>
+    <h2>Sección 1 – Servidor Web en Amazon EC2</h2>
+
     <p>
-        Se creó una instancia EC2 con Apache, protección contra terminación activada,
-        página web Hello World, monitorización activa, grupo de seguridad con HTTP habilitado,
-        reescalado de la instancia y prueba de protección contra terminación.
-    </p>
-</section>
-
-<section id="autoscaling">
-    <h2>Sección 3 - AutoScaling y Load Balancer</h2>
-    <p>
-        Arquitectura formada por VPC, subredes públicas, instancias EC2,
-        AutoScaling Group, Elastic Load Balancer y monitorización mediante CloudWatch.
-    </p>
-</section>
-
-<section id="bigdata">
-    <h2>Big Data</h2>
-
-    <h3>Las 5 Vs</h3>
-    <ul>
-        <li><b>Volume:</b> Cantidad de datos generados</li>
-        <li><b>Velocity:</b> Velocidad de generación</li>
-        <li><b>Variety:</b> Tipos de datos</li>
-        <li><b>Veracity:</b> Calidad de datos</li>
-        <li><b>Value:</b> Valor obtenido de los datos</li>
-    </ul>
-
-    <h3>Ejemplos</h3>
-    <ul>
-        <li>Volume: Redes sociales con millones de posts</li>
-        <li>Velocity: Datos de tráfico GPS</li>
-        <li>Variety: Datos de clientes</li>
-        <li>Veracity: Corrección de duplicados</li>
-        <li>Value: Predicción de demanda</li>
-    </ul>
-
-    <h3>Limitaciones de BBDD tradicionales</h3>
-    <ul>
-        <li>No escalan fácilmente</li>
-        <li>No procesan datos en tiempo real</li>
-        <li>Solo datos estructurados</li>
-        <li>Validación lenta</li>
-        <li>Análisis complejo</li>
-    </ul>
-</section>
-
-<section id="hadoop">
-    <h2>Hadoop</h2>
-    <p><b>Cloudera:</b> HDFS, YARN, MapReduce, Hive, Impala, Hue</p>
-    <p><b>Hortonworks:</b> HDFS, YARN, MapReduce, Hive, Pig, Ambari, HBase</p>
-</section>
-
-<section id="mapreduce">
-    <h2>MapReduce</h2>
-    <p>
-        Modelo de procesamiento distribuido.
-        Map genera pares clave-valor y Reduce agrupa y resume datos.
-        Ejemplo: contar palabras en un libro.
-    </p>
-</section>
-
-<section id="hive">
-    <h2>Hive vs MySQL</h2>
-    <p>
-        MySQL es transaccional y orientado a aplicaciones.
-        Hive es analítico y orientado a Big Data.
+        En esta sección se ha desplegado un servidor web básico utilizando Amazon EC2.
+        El objetivo es comprender el funcionamiento de las instancias, los grupos de
+        seguridad y la publicación de un servicio web accesible desde Internet.
     </p>
 
-    <h3>Tabla externa Hive</h3>
-    <pre>
-CREATE EXTERNAL TABLE IF NOT EXISTS sensor_data (
- sensor_id INT,
- temperature DOUBLE,
- city STRING,
- timestamp TIMESTAMP,
- is_raining BOOLEAN,
- humidity INT,
- wind_speed DOUBLE,
- extra_metrics STRING
-)
-ROW FORMAT SERDE 'org.apache.hadoop.hive.serde2.OpenCSVSerde'
-WITH SERDEPROPERTIES (
- "separatorChar" = ",",
- "quoteChar" = "\"",
- "escapeChar" = "\\"
-)
-STORED AS TEXTFILE
-LOCATION 's3://retoBigData/input/'
-TBLPROPERTIES (
- "skip.header.line.count" = "1"
-);
-    </pre>
-</section>
-
-<section id="spark">
-    <h2>Apache Spark</h2>
+    <h3>CS01 – Creación de la instancia EC2</h3>
     <p>
-        Spark procesa datos en memoria, es más rápido que Hadoop MapReduce
-        y soporta batch, streaming, machine learning y gráficos.
+        Se ha creado una instancia EC2 con protección contra terminación activada,
+        permitiendo observar su estado y configuración desde la consola de AWS.
     </p>
-</section>
+    <img src="img/cs01_ec2.png">
 
-<section id="modelo">
-    <h2>Modelo de captación de datos</h2>
-    <ul>
-        <li>sensor_id (Entero)</li>
-        <li>temperature (Decimal)</li>
-        <li>city (Texto)</li>
-        <li>timestamp (Fecha/Tiempo)</li>
-        <li>is_raining (Booleano)</li>
-        <li>humidity (Entero)</li>
-        <li>wind_speed (Decimal)</li>
-        <li>extra_metrics (Map)</li>
-    </ul>
-</section>
-
-<section id="tableau">
-    <h2>Tableau</h2>
+    <h3>CS02 – Página web desplegada</h3>
     <p>
-        Creación de dashboards, filtros, story, análisis de datos y conclusiones.
+        Se ha instalado un servidor web Apache en la instancia EC2 y se ha publicado
+        una página web sencilla para comprobar el correcto funcionamiento del servicio.
     </p>
-</section>
+    <img src="img/cs02_web.png">
 
-<section id="analisis">
-    <h2>Limpieza, Procesado y Análisis</h2>
-    <ul>
-        <li>Eliminación de nulos</li>
-        <li>Detección de outliers</li>
-        <li>Campo flag crítico</li>
-        <li>Estacionalidad</li>
-        <li>Predicción futura</li>
-    </ul>
-</section>
-
-<section id="conclusiones">
-    <h2>Conclusiones</h2>
+    <h3>CS03 – Presupuesto de costes</h3>
     <p>
-        El proyecto integra cloud computing, Big Data y analítica de datos,
-        aplicando tecnologías reales como AWS, Hadoop, Hive, Spark y Tableau,
-        demostrando un flujo completo desde la infraestructura hasta la visualización y análisis.
+        Se ha consultado el presupuesto estimado del uso de los recursos en AWS,
+        permitiendo analizar el impacto económico del despliegue realizado.
     </p>
+    <img src="img/cs03_costes.png">
+</section>
+
+<section>
+    <h2>Sección 2 – Autoescalado y Balanceo de Carga</h2>
+
+    <p>
+        En esta sección se ha desplegado una arquitectura web más avanzada, incorporando
+        balanceo de carga y autoescalado para mejorar la disponibilidad y escalabilidad
+        del servicio.
+    </p>
+
+    <h3>CS04 – Creación de la AMI</h3>
+    <p>
+        Se ha creado una imagen AMI personalizada a partir de una instancia EC2
+        configurada previamente, que será utilizada para el autoescalado.
+    </p>
+    <img src="img/cs04_ami.png">
+
+    <h3>CS05 – Infraestructura VPC</h3>
+    <p>
+        Se ha configurado la infraestructura de red necesaria mediante una VPC,
+        subredes y grupos de seguridad.
+    </p>
+    <img src="img/cs05_vpc.png">
+
+    <h3>CS06 – Elastic Load Balancer</h3>
+    <p>
+        Se ha configurado un Elastic Load Balancer para distribuir el tráfico entre
+        las distintas instancias disponibles.
+    </p>
+    <img src="img/cs06_elb.png">
+
+    <h3>CS07 – Auto Scaling</h3>
+    <p>
+        Se ha definido un grupo de Auto Scaling que permite aumentar o reducir
+        automáticamente el número de instancias según la carga del sistema.
+    </p>
+    <img src="img/cs07_autoscaling.png">
+
+    <h3>CS08 – Alarmas CloudWatch</h3>
+    <p>
+        Se han creado alarmas en CloudWatch para monitorizar el comportamiento del
+        sistema y activar acciones automáticas cuando se superan determinados umbrales.
+    </p>
+    <img src="img/cs08_cloudwatch.png">
+</section>
+
+<section>
+    <h2>Sección 3 – Tableau: Dashboard</h2>
+
+    <p>
+        Se ha creado un proyecto en Tableau utilizando los datos del sistema Bicing.
+        Se han desarrollado distintos gráficos que permiten analizar la disponibilidad
+        de bicicletas y docks, integrándolos en un dashboard con filtros compartidos.
+    </p>
+
+    <h3>CS09 – Dashboard con filtros compartidos</h3>
+    <p>
+        El dashboard incluye indicadores, gráficos y filtros que afectan a todos los
+        elementos, facilitando el análisis interactivo de los datos.
+    </p>
+    <img src="img/cs09_dashboard.png">
+</section>
+
+<section>
+    <h2>Sección 4 – Limpieza, Procesado y Análisis de Datos</h2>
+
+    <h3>CS10 – Limpieza de datos</h3>
+    <p>
+        Se han representado dos campos en función del tiempo, aplicando filtros por
+        estación y eliminando valores nulos para asegurar la calidad de los datos.
+    </p>
+    <img src="img/cs10_limpieza.png">
+
+    <h3>CS11 – Campo de alerta</h3>
+    <p>
+        Se ha creado un campo calculado que genera una alerta cuando el número de docks
+        disponibles alcanza el 90% del valor máximo histórico de la estación.
+    </p>
+    <img src="img/cs11_flag.png">
+
+    <h3>CS12 – Fórmula del campo calculado</h3>
+    <p>
+        En esta captura se muestra la fórmula utilizada para la creación del campo
+        de alerta, aplicada manualmente según el criterio definido.
+    </p>
+    <img src="img/cs12_formula.png">
+
+    <h3>CS13 – Visualización de la alerta en el tiempo</h3>
+    <p>
+        El campo de alerta se ha incorporado a un gráfico temporal, permitiendo
+        identificar claramente los momentos en los que se activa el aviso.
+    </p>
+    <img src="img/cs13_flag_tiempo.png">
+
+    <h3>CS14 – Análisis de estacionalidad</h3>
+    <p>
+        Se ha analizado un periodo de 15 días consecutivos, observando patrones tanto
+        diarios como horarios en la disponibilidad de docks.
+    </p>
+    <img src="img/cs14_estacionalidad_dias.png">
+    <img src="img/cs14_estacionalidad_horas.png">
+
+    <h3>CS15 – Pronóstico</h3>
+    <p>
+        Se ha aplicado un pronóstico a futuro basado en el histórico de los datos,
+        mostrando una evolución estable del sistema.
+    </p>
+    <img src="img/cs15_pronostico.png">
+</section>
+
+<section>
+    <h2>Story de Tableau y Conclusiones</h2>
+
+    <h3>CS16 – Página de inicio de la Story</h3>
+    <p>
+        La Story incluye una página de inicio con texto e imagen que introduce
+        el análisis realizado.
+    </p>
+    <img src="img/cs16_story_inicio.png">
+
+    <h3>CS16 – Conclusiones finales</h3>
+    <p>
+        El análisis realizado demuestra la utilidad de la limpieza, el procesado
+        y el análisis de datos para mejorar la gestión del sistema Bicing.
+        Se identifican patrones de uso y se facilita la toma de decisiones
+        mediante alertas y pronósticos.
+    </p>
+    <img src="img/cs16_conclusiones.png">
 </section>
 
 <footer>
-    <p>Entrega RBD - Intro Big Data | Joaquim Castel</p>
+    <p>RBD – Entrega Extraordinaria · quim castel</p>
 </footer>
 
 </body>
 </html>
+
 
